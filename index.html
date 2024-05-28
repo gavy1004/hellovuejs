@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to Vue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="simple">
+      <!-- v-text -->
+      <!-- {{ message }}, v-text -> 머스테치 표현식,v-text 는 html 태그 문자를 파싱하지 못함  -->
+      <!-- v-html 은 XXS 공격에 취약하므로 v-text 를 사용하는것이 더 안전하다 -->
+      <h2>{{ message }}</h2>
+      <h2 v-text="message"></h2>
+      <h2 v-html="message"></h2>
+
+      <!-- v-bind -->
+      <input id="a" type="text" v-bind:value="message">
+      <br/>
+      <img v-bind:src="imagePath">
+      <img :src="imagePath">
+  </div>
+
+<script>
+  var model = {
+    message : 'v-bind 디렉티브',
+    imagePath : 'http://sample.bmaster.kro.kr/photos/61.jpg'
+  }
+  
+  var simple = new Vue({
+      el : '#simple',
+      data : model
+  })
+
+</script>
+</body>
+</html>

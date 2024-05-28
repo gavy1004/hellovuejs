@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Welcome to Vue</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="simple">
+    <!-- v-model -->
+    <div>좋아하는 과일을 모두 공라주세요</div>
+    <input type="checkbox" value="1" v-model="fruits">보리
+    <input type="checkbox" value="2" v-model="fruits">코코
+    <input type="checkbox" value="3" v-model="fruits">가비
+    <input type="checkbox" value="4" v-model="fruits">가을
+    <input type="checkbox" value="5" v-model="fruits">깜이
+</div>
+
+<div id="simple2">
+    선택한 과일들: <span v-html="fruits"></span>
+</div>
+<script>
+    var model = {
+        fruits:[]
+    }
+
+    var simple = new Vue({
+        el : '#simple',
+        data : model
+    })
+
+    var simple2 = new Vue({
+        el : '#simple2',
+        data : model
+    })
+</script>
+</body>
+</html>

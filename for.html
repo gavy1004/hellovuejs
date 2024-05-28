@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<style>
+    #list { width:400px; border:1px solid black; border-collapse: collapse; }
+    #list td, #list th { border:1px solid black; text-align: center;}
+    #list > thead > tr { color: yellow; background-color: purple;}
+</style>
+</head>
+<body>
+    <div id="example">
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in items">
+                    <td>{{ item.id }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+            var item = [       
+            {"id": "Open"},
+            {"id": "OpenNew", "label": "Open New"},
+            {"id": "ZoomIn", "label": "Zoom In"},
+            {"id": "ZoomOut", "label": "Zoom Out"},
+            {"id": "OriginalView", "label": "Original View"},
+            {"id": "Quality"},
+            {"id": "Pause"},
+            {"id": "Mute"},
+            {"id": "Find", "label": "Find..."},
+            {"id": "FindAgain", "label": "Find Again"},
+            {"id": "Copy"},
+            {"id": "CopyAgain", "label": "Copy Again"},
+            {"id": "CopySVG", "label": "Copy SVG"},
+            {"id": "ViewSVG", "label": "View SVG"},
+            {"id": "ViewSource", "label": "View Source"},
+            {"id": "SaveAs", "label": "Save As"},
+            {"id": "Help"},
+            {"id": "About", "label": "About Adobe CVG Viewer..."}
+        ]
+
+        var table = new Vue({
+            el: "#example",
+            data: { "items" : item }
+        })
+    </script>
+</body>
+</html>
