@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" 
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .layout1 {
+            margin:30px 30px 30px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="example" class="container layout1">
+        <p><input type="text" v-model="amount" class="form-control" /></p>
+        <p>
+            <button id="deposit" v-on:click="deposit"
+                class="btn btn-primary">예금</button>
+            <button id="withdraw" v-on:click="withdraw"
+                class="btn btn-primary">인출</button>
+        </p>
+        <h3>계좌 잔고 : {{ blance }}</h3>
+    </div>
+<script>
+    var vm = new Vue({
+        el: "#example",
+        data:{
+            amount:0,
+            blance:0
+        },
+        methods:{
+            deposit: function(e){
+                var amt = parseInt(this.amount);
+
+                if(amt <= 0){
+                    alert('0보다 큰값을 예금 해야 합니다.')
+                }else{
+                    this.blance += amt;
+                }
+            },
+            withdraw: function(e){
+                var amt = parseInt(this.amount);
+
+                if(amt <= 0){
+                    alert('0보다 큰값을 인출할 수 있습니다.');
+                }else if (amt > this.blance) {
+                    alert('잔고보다 큰 값을 인출 할 수 없습니다.');
+                }else{
+                    this.blance -= amt;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
